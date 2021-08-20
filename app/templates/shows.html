@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col">
+                <h2>Todos los Shows</h2>
+                <table class="table table-dark table-striped table-hover scroll">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Network</th> 
+                            <th>Fecha de lanzamiento</th>
+                            <th>Acciones</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for all in shows %}
+                        <tr>
+                            <td>{{ all.id }}</td>
+                            <td>{{ all.title }}</td>
+                            <td>{{ all.network }}</td>
+                            <td>{{ all.fecha }}</td>
+                            <td><a class="btn btn-info" href ="shows/{{all.id}}">Ver mas</a></td>
+                            <td><a class="btn btn-warning" href ="shows/{{all.id}}/editar">Editar</a></td>
+                            <td><a class="btn btn-danger" href ="shows/{{all.id}}/borrar">Borrar</a></td>
+                        </tr>
+                        {% endfor %}
+            
+                    </tbody>
+                </table>
+            
+            </div>
+            <td><a class="btn btn-primary" href ="/shows/agregar">Agregar SHOW</a></td>
+        </div>
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
