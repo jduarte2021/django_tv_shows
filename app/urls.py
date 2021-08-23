@@ -7,4 +7,10 @@ urlpatterns = [
     path('shows/<int:id>/editar', views.editar),
     path('shows/<int:id>', views.mostrar),
     path('shows/<int:id>/borrar', views.borrar),
+
+    #POST
+
+    path('shows/create', views.crear_show),
+
+
 ]
